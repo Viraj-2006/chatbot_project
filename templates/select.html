@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Choose Your Advisor</title>
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #f0f2f5, #e8eaf6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .selector-container {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            padding: 40px;
+            width: 480px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #1f2937;
+            margin-bottom: 8px;
+        }
+
+        p.subtitle {
+            color: #6b7280;
+            margin-bottom: 32px;
+        }
+
+        .advisor-options {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .advisor-card {
+            display: block;
+            text-decoration: none;
+            background: #f8f9fb;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 18px 20px;
+            text-align: left;
+            transition: all 0.2s ease;
+        }
+
+        .advisor-card:hover {
+            border-color: #6366f1;
+            background: #eef0ff;
+            transform: translateY(-2px);
+        }
+
+        .advisor-icon {
+            font-size: 24px;
+            margin-bottom: 6px;
+        }
+
+        .advisor-title {
+            font-weight: 600;
+            color: #1f2937;
+            font-size: 16px;
+        }
+
+        .advisor-desc {
+            color: #6b7280;
+            font-size: 13.5px;
+            margin-top: 4px;
+        }
+
+        .advisor-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+
+        .active-badge {
+            font-size: 12px;
+            font-weight: 600;
+            color: #22c55e;
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            padding: 3px 10px;
+            border-radius: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="selector-container">
+        <h1>🤖 Buddy AI</h1>
+        <p class="subtitle">What kind of guidance are you looking for today?</p>
+
+        <div class="advisor-options">
+            <a href="{{ url_for('choose_advisor', advisor_type='career') }}" class="advisor-card">
+                <div class="advisor-card-header">
+                    <div class="advisor-icon">💼</div>
+                    {% if active_advisors.get('career') %}
+                        <span class="active-badge">● Continue</span>
+                    {% endif %}
+                </div>
+                <div class="advisor-title">Career Advisor</div>
+                <div class="advisor-desc">Job search, skills, resumes, career decisions</div>
+            </a>
+
+            <a href="{{ url_for('choose_advisor', advisor_type='business') }}" class="advisor-card">
+                <div class="advisor-card-header">
+                    <div class="advisor-icon">📈</div>
+                    {% if active_advisors.get('business') %}
+                        <span class="active-badge">● Continue</span>
+                    {% endif %}
+                </div>
+                <div class="advisor-title">Business Advisor</div>
+                <div class="advisor-desc">Startup ideas, strategy, marketing, finance basics</div>
+            </a>
+
+            <a href="{{ url_for('choose_advisor', advisor_type='education') }}" class="advisor-card">
+                <div class="advisor-card-header">
+                    <div class="advisor-icon">📚</div>
+                    {% if active_advisors.get('education') %}
+                        <span class="active-badge">● Continue</span>
+                    {% endif %}
+                </div>
+                <div class="advisor-title">Education Mentor</div>
+                <div class="advisor-desc">Study plans, explanations, learning motivation</div>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
