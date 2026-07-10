@@ -35,6 +35,7 @@
 
 ### Advisor Selection
 Choose from three specialized AI advisors.
+
 ![Advisor Selection](static/screenshots/screenshot_select.png)
 
 ### Chat Interface
