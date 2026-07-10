@@ -35,12 +35,15 @@
 
 ### Advisor Selection
 Choose from three specialized AI advisors.
+![Advisor Selection](static/screenshots/screenshot_select.png)
 
 ### Chat Interface
 Clean dark glassmorphism chat UI with message timestamps and typing indicator.
+![Chat Interface](static/screenshots/screenshot_chat.png)
 
 ### Dark Mode
 Full dark mode with glassmorphism design, togglable with one click.
+![Dark Mode](static/screenshots/screenshot_dark.png)
 
 ---
 
